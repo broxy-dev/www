@@ -1,3 +1,5 @@
+[中文文档](./README_ZH.md) | English
+
 # Broxy
 
 Turn any webpage into an MCP server. Let AI assistants directly control the browser.

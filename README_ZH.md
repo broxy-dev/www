@@ -1,3 +1,5 @@
+中文文档 | [English](./README.md)
+
 # Broxy
 
 将任意网页变成 MCP 服务器，让 AI 助手直接控制浏览器。
