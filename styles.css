@@ -524,6 +524,15 @@ body {
   color: var(--text-muted);
 }
 
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--text);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container {
