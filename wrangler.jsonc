@@ -6,7 +6,8 @@
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "exclude": [".git", "node_modules", "*.md", "AGENTS.md", ".gitignore"]
   },
   "compatibility_flags": [
     "nodejs_compat"
