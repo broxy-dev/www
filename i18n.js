@@ -31,7 +31,7 @@ const i18n = {
       step1: '安装 Tampermonkey',
       step1Note: '部分浏览器需开启开发者模式',
       step2: '添加 Broxy 脚本',
-      step2Note: '点击链接即可安装',
+      step2Note: '点击链接即可安装到 Tampermonkey',
       step3: '打开任意网站开始使用',
       step3Note: '点击右下角 Broxy 图标'
     },
@@ -77,7 +77,7 @@ const i18n = {
       step1: 'Install Tampermonkey',
       step1Note: 'Some browsers require Developer Mode',
       step2: 'Add Broxy script',
-      step2Note: 'Click link to install',
+      step2Note: 'Click to install to Tampermonkey',
       step3: 'Open any website to use',
       step3Note: 'Click Broxy icon at bottom-right'
     },
