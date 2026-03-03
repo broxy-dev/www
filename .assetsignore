@@ -1,0 +1,6 @@
+.git
+node_modules
+*.md
+AGENTS.md
+.gitignore
+wrangler.jsonc
