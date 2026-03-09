@@ -698,6 +698,12 @@ a, button {
   color: var(--text-muted);
 }
 
+.install-hint-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
 .footer {
   padding: 60px 40px;
   border-top: 1px solid var(--border);

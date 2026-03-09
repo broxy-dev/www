@@ -277,8 +277,12 @@
     <div class="install-container reveal">
       <h2 class="install-title" data-i18n="install.title">Ready to get started?</h2>
       <p class="install-desc" data-i18n="install.desc">Install Broxy in seconds and start controlling your browser with AI</p>
+      <p class="install-hint-text" data-i18n="install.hint">Choose one of the following methods (Edge Addons recommended)</p>
       <div class="install-tabs">
-        <button class="install-tab active" data-tab="user">
+        <button class="install-tab active" data-tab="edge">
+          <span data-i18n="install.edgeTab">Edge Addons</span>
+        </button>
+        <button class="install-tab" data-tab="user">
           <span data-i18n="install.userTab">User Installation</span>
         </button>
         <button class="install-tab" data-tab="developer">
@@ -286,7 +290,18 @@
         </button>
       </div>
       <div class="install-content">
-        <div class="install-panel active" id="user-panel">
+        <div class="install-panel active" id="edge-panel">
+          <div class="install-steps">
+            <div class="install-step">
+              <span class="install-number">1</span>
+              <div class="install-step-content">
+                <a href="https://microsoftedge.microsoft.com/addons/detail/broxy/kbbobefcojhkfldidakefeeggjgldbjf" target="_blank" rel="noopener" class="install-link" data-i18n="install.edgeLink">Install from Edge Addons</a>
+                <span class="install-note" data-i18n="install.edgeNote">After installation, open any webpage to find Broxy at bottom-right</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="install-panel" id="user-panel">
           <div class="install-steps">
             <div class="install-step">
               <span class="install-number">1</span>
