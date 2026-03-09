@@ -6,13 +6,11 @@
   <title>Broxy — Turn any webpage into an MCP server</title>
   <meta name="description" content="Broxy turns any webpage into an MCP server, allowing AI assistants to directly control the browser.">
   
-  <!-- Basic Meta -->
   <meta name="keywords" content="Broxy, webmcp, MCP, MCP Server, Browser Automation, AI, Claude, Cursor, API, Tampermonkey">
   <meta name="author" content="Broxy">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://broxy.dev/">
   
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Broxy — Turn any webpage into an MCP server">
   <meta property="og:description" content="Broxy turns any webpage into an MCP server, allowing AI assistants to directly control the browser.">
@@ -21,7 +19,6 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
   
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Broxy — Turn any webpage into an MCP server">
   <meta name="twitter:description" content="Broxy turns any webpage into an MCP server, allowing AI assistants to directly control the browser.">
@@ -30,7 +27,6 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="assets/logo.png" type="image/png">
   
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,190 +46,297 @@
   </script>
 </head>
 <body>
-  <div class="controls">
-    <button id="lang-toggle" class="ctrl-btn" title="Language">EN</button>
-    <button id="theme-toggle" class="ctrl-btn" title="Theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    </button>
-    <a href="https://github.com/broxy-dev" target="_blank" rel="noopener" class="ctrl-btn" title="GitHub">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-      </svg>
-    </a>
-  </div>
-
-  <main class="container">
-    <section class="hero">
-      <h1 data-i18n="title">Broxy</h1>
-      <div class="flow">
-        <div class="flow-box" data-i18n="flow.user">User</div>
-        <span class="flow-arrow">⇄</span>
-        <div class="flow-box logo">
-          <img src="assets/logo.png" alt="Broxy">
-        </div>
-        <span class="flow-arrow">⇄</span>
-        <div class="flow-box" data-i18n="flow.webpage">Webpage</div>
+  <canvas id="particles-canvas"></canvas>
+  
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  
+  <nav id="navbar" class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo">
+        <img src="assets/logo.png" alt="Broxy">
+        <span>Broxy</span>
+      </a>
+      <div class="navbar-links">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#quickstart" data-i18n="nav.quickstart">Quick Start</a>
+        <a href="#usecases" data-i18n="nav.usecases">Use Cases</a>
       </div>
-      <div class="hero-text">
-        <p class="tagline" data-i18n="tagline">Turn any webpage into an MCP server</p>
-        <p class="subtitle" data-i18n="subtitle">Let AI control the browser directly</p>
+      <div class="navbar-actions">
+        <button id="lang-toggle" class="ctrl-btn" title="Language">EN</button>
+        <button id="theme-toggle" class="ctrl-btn" title="Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="https://github.com/broxy-dev" target="_blank" rel="noopener" class="ctrl-btn" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
       </div>
-    </section>
+    </div>
+  </nav>
 
-    <div class="flow-demo">
-      <div class="flow-track">
-        <div class="flow-node" style="--delay: 0">
-          <span class="flow-emoji">👤</span>
-          <span class="flow-label" data-i18n="flow.user">用户</span>
+  <section class="hero">
+    <div class="hero-content reveal">
+      <div class="hero-logo">
+        <img src="assets/logo.png" alt="Broxy">
+      </div>
+      <p class="hero-badge" data-i18n="hero.badge">Open Source & Free</p>
+      <h1 class="hero-title" data-i18n="hero.title">Turn any webpage into an MCP server</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Let Claude, Cursor, and other AI assistants directly control your browser. No API needed.</p>
+      <div class="hero-actions">
+        <a href="#install" class="btn-primary" data-i18n="hero.cta">Get Started</a>
+        <a href="https://github.com/broxy-dev" target="_blank" rel="noopener" class="btn-secondary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="section-header reveal">
+      <span class="section-label">FEATURES</span>
+      <h2 class="section-title" data-i18n="features.title">Powerful Capabilities</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+          </svg>
         </div>
-        <div class="flow-arrow" style="--delay: 0">
-          <span class="flow-particle"></span>
+        <h3 data-i18n="features.api.title">API Endpoint</h3>
+        <p data-i18n="features.api.desc">Execute JavaScript on any webpage, expose APIs for external calls</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
         </div>
-        <div class="flow-node" style="--delay: 1">
-          <span class="flow-emoji">🤖</span>
-          <span class="flow-label" data-i18n="flow.aiClient">API/MCP</span>
+        <h3 data-i18n="features.mcp.title">AI Integration</h3>
+        <p data-i18n="features.mcp.desc">MCP support for Claude/Cursor to directly control browser</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+          </svg>
         </div>
-        <div class="flow-arrow" style="--delay: 1">
-          <span class="flow-particle"></span>
+        <h3 data-i18n="features.automation.title">Automation</h3>
+        <p data-i18n="features.automation.desc">Simulate input, click, and request on any webpage</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
         </div>
-        <div class="flow-node" style="--delay: 2">
-          <span class="flow-emoji">🌐</span>
-          <span class="flow-label" data-i18n="flow.broxy">Broxy</span>
+        <h3 data-i18n="features.security.title">Secure & Private</h3>
+        <p data-i18n="features.security.desc">All operations run locally, no data sent to external servers</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
         </div>
-        <div class="flow-arrow" style="--delay: 2">
-          <span class="flow-particle"></span>
+        <h3 data-i18n="features.zero.title">Zero Config</h3>
+        <p data-i18n="features.zero.desc">One-click install via Tampermonkey, works out of the box</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
         </div>
-        <div class="flow-node" style="--delay: 3">
-          <span class="flow-emoji">📄</span>
-          <span class="flow-label" data-i18n="flow.webpage">网页执行</span>
+        <h3 data-i18n="features.cross.title">Cross Platform</h3>
+        <p data-i18n="features.cross.desc">Works on Chrome, Firefox, Safari, Edge and any browser with userscript support</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quickstart" class="quickstart">
+    <div class="section-header reveal">
+      <span class="section-label">QUICK START</span>
+      <h2 class="section-title" data-i18n="quickstart.title">Get started in 3 steps</h2>
+    </div>
+    <div class="quickstart-grid">
+      <div class="quickstart-card reveal">
+        <span class="quickstart-number">1</span>
+        <div class="quickstart-content">
+          <h3 data-i18n="quickstart.step1.title">Install Tampermonkey</h3>
+          <p data-i18n="quickstart.step1.desc">Get the browser extension from tampermonkey.net</p>
+          <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener" class="quickstart-link">
+            <span data-i18n="quickstart.step1.link">Download Tampermonkey</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
         </div>
-        <div class="flow-arrow return" style="--delay: 3">
-          <span class="flow-particle"></span>
+      </div>
+      <div class="quickstart-card reveal">
+        <span class="quickstart-number">2</span>
+        <div class="quickstart-content">
+          <h3 data-i18n="quickstart.step2.title">Add Broxy Script</h3>
+          <p data-i18n="quickstart.step2.desc">Click to install the Broxy userscript</p>
+          <a href="assets/broxy-v1.user.js" class="quickstart-link">
+            <span data-i18n="quickstart.step2.link">Install Broxy Script</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
         </div>
-        <div class="flow-node return" style="--delay: 4">
-          <span class="flow-emoji">🌐</span>
-          <span class="flow-label" data-i18n="flow.broxy">Broxy</span>
-        </div>
-        <div class="flow-arrow return" style="--delay: 4">
-          <span class="flow-particle"></span>
-        </div>
-        <div class="flow-node return" style="--delay: 5">
-          <span class="flow-emoji">🤖</span>
-          <span class="flow-label" data-i18n="flow.aiClient">API/MCP</span>
-        </div>
-        <div class="flow-arrow return" style="--delay: 5">
-          <span class="flow-particle"></span>
-        </div>
-        <div class="flow-node return" style="--delay: 6">
-          <span class="flow-emoji">✅</span>
-          <span class="flow-label" data-i18n="flow.result">结果</span>
+      </div>
+      <div class="quickstart-card reveal">
+        <span class="quickstart-number">3</span>
+        <div class="quickstart-content">
+          <h3 data-i18n="quickstart.step3.title">Start Using</h3>
+          <p data-i18n="quickstart.step3.desc">Open any webpage and click the Broxy floating button</p>
+          <button id="try-btn" class="quickstart-link btn-inline">
+            <span data-i18n="quickstart.step3.link">Try on this page</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
+    <p class="try-hint hidden" data-i18n="try.hint">Broxy loaded! Click the floating button at bottom-right to expose this page as API/MCP</p>
+  </section>
 
-    <section class="features">
-      <h2 class="section-title" data-i18n="features.title">Features</h2>
-      <div class="features-grid">
-        <div class="feature">
-          <h3 data-i18n="features.api.title">API Endpoint</h3>
-          <p data-i18n="features.api.desc">Execute JavaScript on webpage, expose APIs for external calls</p>
-        </div>
-        <div class="feature">
-          <h3 data-i18n="features.mcp.title">AI Integration</h3>
-          <p data-i18n="features.mcp.desc">MCP support for Claude/Cursor to directly control browser</p>
-        </div>
-        <div class="feature">
-          <h3 data-i18n="features.automation.title">Automation</h3>
-          <p data-i18n="features.automation.desc">Simulate input, click, and request on any webpage</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="usecases">
-      <h2 class="section-title" data-i18n="usecases.title">使用场景</h2>
-      <div class="usecases-grid">
-        <div class="usecase">
-          <h3 data-i18n="usecases.automation.title">AI 自动化操作</h3>
-          <p data-i18n="usecases.automation.desc">让 Claude/Cursor 自动填写表单、提交报告、预订会议室</p>
-        </div>
-        <div class="usecase">
-          <h3 data-i18n="usecases.monitor.title">网页数据监控</h3>
-          <p data-i18n="usecases.monitor.desc">实时监控价格、股票行情、竞品数据</p>
-        </div>
-        <div class="usecase">
-          <h3 data-i18n="usecases.api.title">无 API 变 API</h3>
-          <p data-i18n="usecases.api.desc">将没有开放 API 的网站转换为可调用接口</p>
-        </div>
-      </div>
-    </section>
-
-     <section class="install">
-       <h2 class="section-title" data-i18n="install.title">Installation</h2>
-<div class="install-tabs">
-      <button class="install-tab active" data-tab="user">
-        <span data-i18n="install.userTab">用户安装</span>
-      </button>
-      <button class="install-tab" data-tab="developer">
-        <span data-i18n="install.developerTab">为你的网站添加 Broxy 功能</span>
-      </button>
+  <section id="usecases" class="usecases">
+    <div class="section-header reveal">
+      <span class="section-label">USE CASES</span>
+      <h2 class="section-title" data-i18n="usecases.title">Real-world scenarios</h2>
     </div>
-
-<div class="install-content">
-      <div class="install-panel active" id="user-panel">
-        <div class="install-step">
-          <span class="install-number">1</span>
-          <div>
-            <span class="install-text"><a href="https://www.tampermonkey.net/" target="_blank" rel="noopener"><span data-i18n="install.step1">Install Tampermonkey</span></a></span>
-            <span class="install-note" data-i18n="install.step1Note">Browser extension manager</span>
+    <div class="usecases-grid">
+      <div class="usecase-card reveal">
+        <div class="usecase-header">
+          <span class="usecase-icon">🤖</span>
+          <span class="usecase-tag" data-i18n="usecases.automation.tag">AI Automation</span>
+        </div>
+        <div class="usecase-chat">
+          <div class="chat-bubble user">
+            <span data-i18n="usecases.automation.input">Help me fill this form and submit the report</span>
+          </div>
+          <div class="chat-bubble ai">
+            <span data-i18n="usecases.automation.output">Form filled and submitted successfully!</span>
           </div>
         </div>
-        <div class="install-step">
-          <span class="install-number">2</span>
-          <div>
-            <span class="install-text"><a href="assets/broxy-v1.user.js"><span data-i18n="install.step2">Add Broxy script</span></a></span>
-            <span class="install-note" data-i18n="install.step2Note">Click link to install</span>
-          </div>
-        </div>
-        <div class="install-step">
-          <span class="install-number">3</span>
-          <div>
-            <span class="install-text" data-i18n="install.step3">Click floating button to config</span>
-            <span class="install-note" data-i18n="install.step3Note">Broxy icon at bottom-right corner</span>
-          </div>
-        </div>
+        <p class="usecase-desc" data-i18n="usecases.automation.desc">Let Claude/Cursor fill forms, submit reports, and book meetings automatically</p>
       </div>
+      <div class="usecase-card reveal">
+        <div class="usecase-header">
+          <span class="usecase-icon">📊</span>
+          <span class="usecase-tag" data-i18n="usecases.monitor.tag">Data Monitoring</span>
+        </div>
+        <div class="usecase-chat">
+          <div class="chat-bubble user">
+            <span data-i18n="usecases.monitor.input">Monitor this product's price every hour</span>
+          </div>
+          <div class="chat-bubble ai">
+            <span data-i18n="usecases.monitor.output">Monitoring started! Price: $299</span>
+          </div>
+        </div>
+        <p class="usecase-desc" data-i18n="usecases.monitor.desc">Track prices, stocks, and competitor data in real-time</p>
+      </div>
+      <div class="usecase-card reveal">
+        <div class="usecase-header">
+          <span class="usecase-icon">🔌</span>
+          <span class="usecase-tag" data-i18n="usecases.api.tag">API Generator</span>
+        </div>
+        <div class="usecase-chat">
+          <div class="chat-bubble user">
+            <span data-i18n="usecases.api.input">Turn this website's search into an API</span>
+          </div>
+          <div class="chat-bubble ai">
+            <span data-i18n="usecases.api.output">API created: GET /search?q={query}</span>
+          </div>
+        </div>
+        <p class="usecase-desc" data-i18n="usecases.api.desc">Convert websites without APIs into callable interfaces</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="install-panel" id="developer-panel">
-        <div class="install-step">
-          <span class="install-number">1</span>
-          <div class="install-code">
+  <section id="install" class="install-section">
+    <div class="install-container reveal">
+      <h2 class="install-title" data-i18n="install.title">Ready to get started?</h2>
+      <p class="install-desc" data-i18n="install.desc">Install Broxy in seconds and start controlling your browser with AI</p>
+      <div class="install-tabs">
+        <button class="install-tab active" data-tab="user">
+          <span data-i18n="install.userTab">User Installation</span>
+        </button>
+        <button class="install-tab" data-tab="developer">
+          <span data-i18n="install.developerTab">For Developers</span>
+        </button>
+      </div>
+      <div class="install-content">
+        <div class="install-panel active" id="user-panel">
+          <div class="install-steps">
+            <div class="install-step">
+              <span class="install-number">1</span>
+              <div class="install-step-content">
+                <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener" class="install-link" data-i18n="install.step1">Install Tampermonkey</a>
+                <span class="install-note" data-i18n="install.step1Note">Browser extension manager</span>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="install-number">2</span>
+              <div class="install-step-content">
+                <a href="assets/broxy-v1.user.js" class="install-link" data-i18n="install.step2">Add Broxy script</a>
+                <span class="install-note" data-i18n="install.step2Note">Click to install</span>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="install-number">3</span>
+              <div class="install-step-content">
+                <span class="install-link" data-i18n="install.step3">Click floating button to config</span>
+                <span class="install-note" data-i18n="install.step3Note">Broxy icon at bottom-right corner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="install-panel" id="developer-panel">
+          <div class="install-code-block">
             <code>&lt;script src="https://broxy.dev/assets/broxy-v1.user.js"&gt;&lt;/script&gt;</code>
-            <button class="copy-btn" data-i18n="install.copy">复制</button>
+            <button class="copy-btn" data-i18n="install.copy">Copy</button>
           </div>
+          <p class="install-hint" data-i18n="install.developerHint">Add this to your page and visitors can use Broxy immediately</p>
         </div>
-        <p class="install-hint" data-i18n="install.developerHint">添加后，访客即可立即使用 Broxy 服务，无需安装任何扩展</p>
       </div>
-      </div>
-      </section>
+    </div>
+  </section>
 
-      <section class="try-section">
-        <h2 class="section-title" data-i18n="try.title">立即体验</h2>
-        <div class="try-content">
-          <button id="try-btn" class="try-btn" data-i18n="try.button">点击体验 Broxy</button>
-          <p class="try-hint hidden" data-i18n="try.hint">Broxy 已加载！点击右下角浮动按钮，即可将本页面公开为 API/MCP，在任意工作流、AI 客户端中调用</p>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Broxy" class="footer-logo">
+          <span>Broxy</span>
         </div>
-      </section>
-   </main>
+        <p class="footer-desc" data-i18n="footer.desc">Turn any webpage into an MCP server</p>
+        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 Broxy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-   <footer class="footer">
-     <p data-i18n="footer.copyright">© 2026 Broxy. All rights reserved.</p>
-     <p><a href="https://github.com/broxy-dev" target="_blank" rel="noopener">GitHub</a></p>
-   </footer>
-
-   <script src="i18n.js"></script>
-   <script src="script.js"></script>
-   <script src="assets/data.js"></script>
- </body>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script src="assets/data.js"></script>
+</body>
 </html>
