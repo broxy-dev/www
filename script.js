@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   initInstallTabs();
   initCopyButton();
-  initTryButton();
   initCursor();
   initParticles();
   initScrollReveal();
@@ -145,31 +144,6 @@ function initCopyButton() {
     } catch (err) {
       console.error('Copy failed:', err);
     }
-  });
-}
-
-function initTryButton() {
-  const btn = document.getElementById('try-btn');
-  if (!btn) return;
-  
-  btn.addEventListener('click', () => {
-    if (btn.disabled) return;
-    
-    btn.disabled = true;
-    const currentLang = getLang();
-    btn.querySelector('span').textContent = currentLang === 'zh' ? '加载中...' : 'Loading...';
-    
-    const script = document.createElement('script');
-    script.src = 'assets/broxy-v1.user.js';
-    script.onload = () => {
-      btn.classList.add('hidden');
-      document.querySelector('.try-hint')?.classList.remove('hidden');
-    };
-    script.onerror = () => {
-      btn.disabled = false;
-      btn.querySelector('span').textContent = currentLang === 'zh' ? '点击体验 Broxy' : 'Try on this page';
-    };
-    document.body.appendChild(script);
   });
 }
 

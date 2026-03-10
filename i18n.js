@@ -2,7 +2,7 @@ const i18n = {
   zh: {
     nav: {
       features: '功能特性',
-      quickstart: '快速上手',
+      quickstart: '使用指南',
       usecases: '使用场景',
       install: '安装'
     },
@@ -22,21 +22,18 @@ const i18n = {
       cross: { title: '跨平台', desc: '支持 Chrome、Firefox、Safari、Edge 及所有支持脚本的浏览器' }
     },
     quickstart: {
-      title: '三步上手',
+      title: '使用指南',
       step1: {
-        title: '安装 Tampermonkey',
-        desc: '从 tampermonkey.net 获取浏览器扩展',
-        link: '下载 Tampermonkey'
+        title: '安装插件/脚本',
+        desc: '选择 Edge 扩展或油猴脚本完成安装，即可在浏览器中使用 Broxy'
       },
       step2: {
-        title: '添加 Broxy 脚本',
-        desc: '点击安装 Broxy 用户脚本',
-        link: '安装 Broxy 脚本'
+        title: '启动并配置',
+        desc: '打开目标网站启动 Broxy，配置工具后即可获取操控该网页的能力'
       },
       step3: {
-        title: '开始使用',
-        desc: '打开任意网页，点击 Broxy 浮动按钮',
-        link: '在本页体验'
+        title: '复制地址使用',
+        desc: '复制 API 地址用于工作流脚本，或复制 MCP 地址用于 AI 助手'
       }
     },
     usecases: {
@@ -78,9 +75,6 @@ const i18n = {
       step3: '点击浮动按钮配置',
       step3Note: '右下角 Broxy 图标'
     },
-    try: {
-      hint: 'Broxy 已加载！点击右下角浮动按钮，即可将本页面公开为 API/MCP'
-    },
     footer: {
       desc: '将任意网页变成 MCP 服务器',
       copyright: '© 2026 Broxy. 保留所有权利。'
@@ -89,7 +83,7 @@ const i18n = {
   en: {
     nav: {
       features: 'Features',
-      quickstart: 'Quick Start',
+      quickstart: 'Usage Guide',
       usecases: 'Use Cases',
       install: 'Install'
     },
@@ -109,21 +103,18 @@ const i18n = {
       cross: { title: 'Cross Platform', desc: 'Works on Chrome, Firefox, Safari, Edge and any browser with userscript support' }
     },
     quickstart: {
-      title: 'Get started in 3 steps',
+      title: 'Usage Guide',
       step1: {
-        title: 'Install Tampermonkey',
-        desc: 'Get the browser extension from tampermonkey.net',
-        link: 'Download Tampermonkey'
+        title: 'Install Extension/Script',
+        desc: 'Choose Edge Addons or Userscript to use Broxy in your browser'
       },
       step2: {
-        title: 'Add Broxy Script',
-        desc: 'Click to install the Broxy userscript',
-        link: 'Install Broxy Script'
+        title: 'Launch & Configure',
+        desc: 'Open target website, launch Broxy and configure tools to control the page'
       },
       step3: {
-        title: 'Start Using',
-        desc: 'Open any webpage and click the Broxy floating button',
-        link: 'Try on this page'
+        title: 'Copy Endpoint to Use',
+        desc: 'Copy API for workflow scripts, or MCP endpoint for AI assistants'
       }
     },
     usecases: {
@@ -164,9 +155,6 @@ const i18n = {
       step2Note: 'Click to install',
       step3: 'Click floating button to config',
       step3Note: 'Broxy icon at bottom-right corner'
-    },
-    try: {
-      hint: 'Broxy loaded! Click the floating button at bottom-right to expose this page as API/MCP'
     },
     footer: {
       desc: 'Turn any webpage into an MCP server',

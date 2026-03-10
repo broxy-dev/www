@@ -169,54 +169,95 @@
   <section id="quickstart" class="quickstart">
     <div class="section-header reveal">
       <span class="section-label">QUICK START</span>
-      <h2 class="section-title" data-i18n="quickstart.title">Get started in 3 steps</h2>
+      <h2 class="section-title" data-i18n="quickstart.title">Usage Guide</h2>
     </div>
     <div class="quickstart-grid">
       <div class="quickstart-card reveal">
         <span class="quickstart-number">1</span>
         <div class="quickstart-content">
-          <h3 data-i18n="quickstart.step1.title">Install Tampermonkey</h3>
-          <p data-i18n="quickstart.step1.desc">Get the browser extension from tampermonkey.net</p>
-          <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener" class="quickstart-link">
-            <span data-i18n="quickstart.step1.link">Download Tampermonkey</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15 3 21 3 21 9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-          </a>
+          <h3 data-i18n="quickstart.step1.title">Install Extension/Script</h3>
+          <p data-i18n="quickstart.step1.desc">Choose Edge Addons or Userscript to use Broxy in your browser</p>
         </div>
       </div>
       <div class="quickstart-card reveal">
         <span class="quickstart-number">2</span>
         <div class="quickstart-content">
-          <h3 data-i18n="quickstart.step2.title">Add Broxy Script</h3>
-          <p data-i18n="quickstart.step2.desc">Click to install the Broxy userscript</p>
-          <a href="assets/broxy-v1.user.js" class="quickstart-link">
-            <span data-i18n="quickstart.step2.link">Install Broxy Script</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </a>
+          <h3 data-i18n="quickstart.step2.title">Launch & Configure</h3>
+          <p data-i18n="quickstart.step2.desc">Open target website, launch Broxy and configure tools to control the page</p>
         </div>
       </div>
       <div class="quickstart-card reveal">
         <span class="quickstart-number">3</span>
         <div class="quickstart-content">
-          <h3 data-i18n="quickstart.step3.title">Start Using</h3>
-          <p data-i18n="quickstart.step3.desc">Open any webpage and click the Broxy floating button</p>
-          <button id="try-btn" class="quickstart-link btn-inline">
-            <span data-i18n="quickstart.step3.link">Try on this page</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-          </button>
+          <h3 data-i18n="quickstart.step3.title">Copy Endpoint to Use</h3>
+          <p data-i18n="quickstart.step3.desc">Copy API for workflow scripts, or MCP endpoint for AI assistants</p>
         </div>
       </div>
     </div>
-    <p class="try-hint hidden" data-i18n="try.hint">Broxy loaded! Click the floating button at bottom-right to expose this page as API/MCP</p>
+  </section>
+
+  <section id="install" class="install-section">
+    <div class="install-container reveal">
+      <h2 class="install-title" data-i18n="install.title">Ready to get started?</h2>
+      <p class="install-desc" data-i18n="install.desc">Install Broxy in seconds and start controlling your browser with AI</p>
+      <p class="install-hint-text" data-i18n="install.hint">Choose one of the following methods (Edge Addons recommended)</p>
+      <div class="install-tabs">
+        <button class="install-tab active" data-tab="edge">
+          <span data-i18n="install.edgeTab">Edge Addons</span>
+        </button>
+        <button class="install-tab" data-tab="user">
+          <span data-i18n="install.userTab">Userscript</span>
+        </button>
+        <button class="install-tab" data-tab="developer">
+          <span data-i18n="install.developerTab">For Developers</span>
+        </button>
+      </div>
+      <div class="install-content">
+        <div class="install-panel active" id="edge-panel">
+          <div class="install-steps">
+            <div class="install-step">
+              <span class="install-number">1</span>
+              <div class="install-step-content">
+                <a href="https://microsoftedge.microsoft.com/addons/detail/broxy/kbbobefcojhkfldidakefeeggjgldbjf" target="_blank" rel="noopener" class="install-link" data-i18n="install.edgeLink">Install from Edge Addons</a>
+                <span class="install-note" data-i18n="install.edgeNote">After installation, open any webpage to find Broxy at bottom-right</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="install-panel" id="user-panel">
+          <div class="install-steps">
+            <div class="install-step">
+              <span class="install-number">1</span>
+              <div class="install-step-content">
+                <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener" class="install-link" data-i18n="install.step1">Install Tampermonkey</a>
+                <span class="install-note" data-i18n="install.step1Note">Browser extension manager</span>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="install-number">2</span>
+              <div class="install-step-content">
+                <a href="assets/broxy-v1.user.js" class="install-link" data-i18n="install.step2">Add Broxy script</a>
+                <span class="install-note" data-i18n="install.step2Note">Click to install</span>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="install-number">3</span>
+              <div class="install-step-content">
+                <span class="install-link" data-i18n="install.step3">Click floating button to config</span>
+                <span class="install-note" data-i18n="install.step3Note">Broxy icon at bottom-right corner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="install-panel" id="developer-panel">
+          <div class="install-code-block">
+            <code>&lt;script src="https://broxy.dev/assets/broxy-v1.user.js"&gt;&lt;/script&gt;</code>
+            <button class="copy-btn" data-i18n="install.copy">Copy</button>
+          </div>
+          <p class="install-hint" data-i18n="install.developerHint">Add this to your page and visitors can use Broxy immediately</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="usecases" class="usecases">
@@ -269,70 +310,6 @@
           </div>
         </div>
         <p class="usecase-desc" data-i18n="usecases.api.desc">Convert websites without APIs into callable interfaces</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="install" class="install-section">
-    <div class="install-container reveal">
-      <h2 class="install-title" data-i18n="install.title">Ready to get started?</h2>
-      <p class="install-desc" data-i18n="install.desc">Install Broxy in seconds and start controlling your browser with AI</p>
-      <p class="install-hint-text" data-i18n="install.hint">Choose one of the following methods (Edge Addons recommended)</p>
-      <div class="install-tabs">
-        <button class="install-tab active" data-tab="edge">
-          <span data-i18n="install.edgeTab">Edge Addons</span>
-        </button>
-        <button class="install-tab" data-tab="user">
-          <span data-i18n="install.userTab">User Installation</span>
-        </button>
-        <button class="install-tab" data-tab="developer">
-          <span data-i18n="install.developerTab">For Developers</span>
-        </button>
-      </div>
-      <div class="install-content">
-        <div class="install-panel active" id="edge-panel">
-          <div class="install-steps">
-            <div class="install-step">
-              <span class="install-number">1</span>
-              <div class="install-step-content">
-                <a href="https://microsoftedge.microsoft.com/addons/detail/broxy/kbbobefcojhkfldidakefeeggjgldbjf" target="_blank" rel="noopener" class="install-link" data-i18n="install.edgeLink">Install from Edge Addons</a>
-                <span class="install-note" data-i18n="install.edgeNote">After installation, open any webpage to find Broxy at bottom-right</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="install-panel" id="user-panel">
-          <div class="install-steps">
-            <div class="install-step">
-              <span class="install-number">1</span>
-              <div class="install-step-content">
-                <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener" class="install-link" data-i18n="install.step1">Install Tampermonkey</a>
-                <span class="install-note" data-i18n="install.step1Note">Browser extension manager</span>
-              </div>
-            </div>
-            <div class="install-step">
-              <span class="install-number">2</span>
-              <div class="install-step-content">
-                <a href="assets/broxy-v1.user.js" class="install-link" data-i18n="install.step2">Add Broxy script</a>
-                <span class="install-note" data-i18n="install.step2Note">Click to install</span>
-              </div>
-            </div>
-            <div class="install-step">
-              <span class="install-number">3</span>
-              <div class="install-step-content">
-                <span class="install-link" data-i18n="install.step3">Click floating button to config</span>
-                <span class="install-note" data-i18n="install.step3Note">Broxy icon at bottom-right corner</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="install-panel" id="developer-panel">
-          <div class="install-code-block">
-            <code>&lt;script src="https://broxy.dev/assets/broxy-v1.user.js"&gt;&lt;/script&gt;</code>
-            <button class="copy-btn" data-i18n="install.copy">Copy</button>
-          </div>
-          <p class="install-hint" data-i18n="install.developerHint">Add this to your page and visitors can use Broxy immediately</p>
-        </div>
       </div>
     </div>
   </section>
