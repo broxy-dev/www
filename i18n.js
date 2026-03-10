@@ -76,6 +76,10 @@ const i18n = {
       step3: '点击浮动按钮配置',
       step3Note: '右下角 Broxy 图标'
     },
+    try: {
+      button: '点击体验 Broxy',
+      hint: 'Broxy 已加载！点击右下角浮动按钮，即可将本页面公开为 API/MCP，在任意工作流、AI 客户端中调用'
+    },
     footer: {
       desc: '将任意网页变成 MCP 服务器',
       copyright: '© 2026 Broxy. 保留所有权利。'
@@ -157,6 +161,10 @@ const i18n = {
       step2Note: 'Click to install',
       step3: 'Click floating button to config',
       step3Note: 'Broxy icon at bottom-right corner'
+    },
+    try: {
+      button: 'Try Broxy',
+      hint: 'Broxy loaded! Click the floating button at bottom-right to expose this page as API/MCP for any workflow or AI client'
     },
     footer: {
       desc: 'Turn any webpage into an MCP server',

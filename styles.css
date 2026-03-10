@@ -421,6 +421,47 @@ a, button {
   line-height: 1.6;
 }
 
+.quickstart-try {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.try-btn {
+  padding: 14px 40px;
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.try-btn:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.try-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.try-btn.hidden {
+  display: none;
+}
+
+.try-hint {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.try-hint.hidden {
+  display: none;
+}
+
 .usecases {
   padding: 100px 40px;
   position: relative;
