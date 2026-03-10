@@ -9,13 +9,14 @@ const i18n = {
     hero: {
       badge: '开源免费',
       title: '将任意网页变成 MCP 服务器',
-      subtitle: '让 Claude、Cursor 等 AI 助手直接操控浏览器，无需 API',
-      cta: '开始使用'
+      subtitle: '让 Claude、OpenClaw 等 AI 助手直接操控浏览器，无需 API',
+      cta: '开始使用',
+      edgeBtn: '安装扩展'
     },
     features: {
       title: '强大功能',
       api: { title: '对外接口', desc: '在任意网页执行 JavaScript，暴露 API 供外部调用' },
-      mcp: { title: 'AI 联动', desc: '支持 MCP，让 Claude/Cursor 直接操控浏览器' },
+      mcp: { title: 'AI 联动', desc: '支持 MCP，让 Claude/OpenClaw 直接操控浏览器' },
       automation: { title: '网页自动化', desc: '模拟输入、点击、请求，自动化任意网页' },
       security: { title: '安全私密', desc: '所有操作均在本地运行，数据不上传外部服务器' },
       zero: { title: '零配置', desc: '通过 Tampermonkey 一键安装，开箱即用' },
@@ -42,19 +43,19 @@ const i18n = {
         tag: 'AI 自动化',
         input: '帮我填这个表单并提交报告',
         output: '表单已填写并提交成功！',
-        desc: '让 Claude/Cursor 自动填写表单、提交报告、预订会议室'
+        desc: '让 AI 自动填写表单、提交报告、执行工作流'
       },
       monitor: {
         tag: '数据监控',
         input: '每小时监控这个商品的价格',
         output: '监控已开始！当前价格：¥299',
-        desc: '实时监控价格、股票行情、竞品数据'
+        desc: '实时监控价格、股票行情、竞品数据变化'
       },
       api: {
         tag: 'API 生成',
         input: '把这个网站的搜索变成 API',
         output: 'API 已创建：GET /search?q={query}',
-        desc: '将没有开放 API 的网站转换为可调用接口'
+        desc: '将无 API 网站转换为可调用的接口服务'
       }
     },
     install: {
@@ -90,13 +91,14 @@ const i18n = {
     hero: {
       badge: 'Open Source & Free',
       title: 'Turn any webpage into an MCP server',
-      subtitle: 'Let Claude, Cursor, and other AI assistants directly control your browser. No API needed.',
-      cta: 'Get Started'
+      subtitle: 'Let Claude, OpenClaw, and other AI assistants directly control your browser. No API needed.',
+      cta: 'Get Started',
+      edgeBtn: 'Edge Addons'
     },
     features: {
       title: 'Powerful Capabilities',
       api: { title: 'API Endpoint', desc: 'Execute JavaScript on any webpage, expose APIs for external calls' },
-      mcp: { title: 'AI Integration', desc: 'MCP support for Claude/Cursor to directly control browser' },
+      mcp: { title: 'AI Integration', desc: 'MCP support for Claude/OpenClaw to directly control browser' },
       automation: { title: 'Automation', desc: 'Simulate input, click, and request on any webpage' },
       security: { title: 'Secure & Private', desc: 'All operations run locally, no data sent to external servers' },
       zero: { title: 'Zero Config', desc: 'One-click install via Tampermonkey, works out of the box' },
@@ -123,7 +125,7 @@ const i18n = {
         tag: 'AI Automation',
         input: 'Help me fill this form and submit the report',
         output: 'Form filled and submitted successfully!',
-        desc: 'Let Claude/Cursor fill forms, submit reports, and book meetings automatically'
+        desc: 'Let AI fill forms, submit reports, and automate workflows'
       },
       monitor: {
         tag: 'Data Monitoring',
@@ -135,7 +137,7 @@ const i18n = {
         tag: 'API Generator',
         input: 'Turn this website\'s search into an API',
         output: 'API created: GET /search?q={query}',
-        desc: 'Convert websites without APIs into callable interfaces'
+        desc: 'Turn websites without APIs into callable interfaces'
       }
     },
     install: {
