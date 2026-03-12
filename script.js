@@ -113,6 +113,8 @@ function initInstallTabs() {
   
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
+      if (tab.classList.contains('disabled')) return;
+      
       const targetId = tab.dataset.tab + '-panel';
       
       tabs.forEach(t => t.classList.remove('active'));

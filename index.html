@@ -88,7 +88,10 @@
       <p class="hero-subtitle" data-i18n="hero.subtitle">Let Claude, Cursor, and other AI assistants directly control your browser. No API needed.</p>
       <div class="hero-actions">
         <a href="#install" class="btn-primary" data-i18n="hero.cta">Get Started</a>
-        <a href="https://microsoftedge.microsoft.com/addons/detail/broxy/kbbobefcojhkfldidakefeeggjgldbjf" target="_blank" rel="noopener" class="btn-secondary" data-i18n="hero.edgeBtn">Edge Addons</a>
+        <span class="btn-secondary disabled">
+          <span data-i18n="hero.edgeBtn">Edge Addons</span>
+          <span class="badge" data-i18n="install.edgeBadge">Pending</span>
+        </span>
       </div>
     </div>
   </section>
@@ -201,10 +204,11 @@
       <p class="install-desc" data-i18n="install.desc">Install Broxy in seconds and start controlling your browser with AI</p>
       <p class="install-hint-text" data-i18n="install.hint">Choose one of the following methods (Edge Addons recommended)</p>
       <div class="install-tabs">
-        <button class="install-tab active" data-tab="edge">
+        <button class="install-tab disabled" data-tab="edge">
           <span data-i18n="install.edgeTab">Edge Addons</span>
+          <span class="badge" data-i18n="install.edgeBadge">Pending</span>
         </button>
-        <button class="install-tab" data-tab="user">
+        <button class="install-tab active" data-tab="user">
           <span data-i18n="install.userTab">Userscript</span>
         </button>
         <button class="install-tab" data-tab="developer">
@@ -212,7 +216,7 @@
         </button>
       </div>
       <div class="install-content">
-        <div class="install-panel active" id="edge-panel">
+        <div class="install-panel" id="edge-panel">
           <div class="install-steps">
             <div class="install-step">
               <span class="install-number">1</span>
@@ -223,7 +227,7 @@
             </div>
           </div>
         </div>
-        <div class="install-panel" id="user-panel">
+        <div class="install-panel active" id="user-panel">
           <div class="install-steps">
             <div class="install-step">
               <span class="install-number">1</span>

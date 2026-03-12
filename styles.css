@@ -289,6 +289,21 @@ a, button {
   color: var(--bg);
 }
 
+.btn-secondary.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-secondary .badge {
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--text-muted);
+  color: var(--bg);
+  border-radius: 4px;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 60px;
@@ -594,6 +609,27 @@ a, button {
   right: 0;
   height: 2px;
   background: var(--text);
+}
+
+.install-tab.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.install-tab.disabled:hover {
+  color: var(--text-muted);
+}
+
+.install-tab .badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--text-muted);
+  color: var(--bg);
+  border-radius: 4px;
+  vertical-align: middle;
 }
 
 .install-panel {
