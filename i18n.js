@@ -10,8 +10,7 @@ const i18n = {
       badge: '开源免费',
       title: '将任意网页变成 MCP 服务器',
       subtitle: '让 Claude、OpenClaw 等 AI 助手直接操控浏览器，无需 API',
-      cta: '开始使用',
-      edgeBtn: '安装扩展'
+      cta: '开始使用'
     },
     features: {
       title: '强大功能',
@@ -100,8 +99,7 @@ const i18n = {
       badge: 'Open Source & Free',
       title: 'Turn any webpage into an MCP server',
       subtitle: 'Let Claude, OpenClaw, and other AI assistants directly control your browser. No API needed.',
-      cta: 'Get Started',
-      edgeBtn: 'Edge Addons'
+      cta: 'Get Started'
     },
     features: {
       title: 'Powerful Capabilities',
