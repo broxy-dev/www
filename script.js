@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initNavbarScroll();
   initCardHover();
+  initTypingEffect();
 });
 
 function initBookmarklet() {
@@ -314,6 +315,50 @@ function initCardHover() {
       card.style.transform = 'translateY(0) perspective(800px) rotateX(0) rotateY(0)';
     });
   });
+}
+
+function initTypingEffect() {
+  const el = document.getElementById('hero-keyword');
+  if (!el) return;
+
+  const keywords = ['MCP', 'API'];
+  let currentIndex = 0;
+  let currentText = '';
+  let isDeleting = false;
+  let charIndex = 0;
+
+  const typeSpeed = 180;
+  const deleteSpeed = 120;
+  const pauseTime = 3000;
+
+  function type() {
+    const currentKeyword = keywords[currentIndex];
+
+    if (isDeleting) {
+      currentText = currentKeyword.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      currentText = currentKeyword.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    el.textContent = currentText;
+
+    let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIndex === currentKeyword.length) {
+      delay = pauseTime;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      currentIndex = (currentIndex + 1) % keywords.length;
+      delay = 200;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  type();
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {

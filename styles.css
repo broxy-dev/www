@@ -241,6 +241,15 @@ a, button {
   margin-bottom: 24px;
 }
 
+.typing-text {
+  background: linear-gradient(135deg, #34afb7, #dd4774);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(52, 175, 183, 0.6))
+          drop-shadow(0 0 16px rgba(221, 71, 116, 0.4));
+}
+
 .hero-subtitle {
   font-size: 20px;
   color: var(--text-muted);
