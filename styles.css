@@ -436,47 +436,6 @@ a, button {
   line-height: 1.6;
 }
 
-.quickstart-try {
-  text-align: center;
-  margin-top: 48px;
-}
-
-.try-btn {
-  padding: 14px 40px;
-  background: var(--text);
-  color: var(--bg);
-  border: 1px solid var(--border);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.try-btn:hover:not(:disabled) {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
-
-.try-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.try-btn.hidden {
-  display: none;
-}
-
-.try-hint {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-top: 16px;
-  line-height: 1.6;
-}
-
-.try-hint.hidden {
-  display: none;
-}
-
 .usecases {
   padding: 100px 40px;
   position: relative;
@@ -632,6 +591,10 @@ a, button {
   vertical-align: middle;
 }
 
+.install-tab .badge-recommended {
+  background: #22c55e;
+}
+
 .install-panel {
   display: none;
 }
@@ -734,6 +697,54 @@ a, button {
   margin-top: 16px;
   font-size: 13px;
   color: var(--text-muted);
+}
+
+.bookmarklet-hint {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.bookmarklet-drag-area {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+  margin-bottom: 24px;
+  border: 2px dashed var(--border);
+  background: var(--bg);
+}
+
+.bookmarklet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--text);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: grab;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bookmarklet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .bookmarklet-btn:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.bookmarklet-btn:active {
+  cursor: grabbing;
+}
+
+.bookmarklet-steps {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
 }
 
 .install-hint-text {

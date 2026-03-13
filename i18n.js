@@ -19,7 +19,7 @@ const i18n = {
       mcp: { title: 'AI 联动', desc: '支持 MCP，让 Claude/OpenClaw 直接操控浏览器' },
       automation: { title: '网页自动化', desc: '模拟输入、点击、请求，自动化任意网页' },
       security: { title: '安全私密', desc: '所有操作均在本地运行，数据不上传外部服务器' },
-      zero: { title: '零配置', desc: '通过 Tampermonkey 一键安装，开箱即用' },
+      zero: { title: '零配置', desc: '拖拽到书签栏即可使用，无需安装任何扩展' },
       cross: { title: '跨平台', desc: '支持 Chrome、Firefox、Safari、Edge 及所有支持脚本的浏览器' }
     },
     quickstart: {
@@ -61,7 +61,14 @@ const i18n = {
     install: {
       title: '准备好了吗？',
       desc: '几秒钟安装 Broxy，开始用 AI 控制你的浏览器',
-      hint: '选择以下任一方式安装（推荐 Edge 扩展）',
+      hint: '选择以下任一方式安装',
+      bookmarkletTab: '书签',
+      recommendedBadge: '推荐',
+      bookmarkletHint: '拖拽按钮到书签栏，打开网页后点击书签即可加载Broxy',
+      bookmarkletBtn: '🚀 加载Broxy',
+      bookmarkletStep1: '拖拽【加载Broxy】到书签栏',
+      bookmarkletStep2: '打开目标网页，点击书签',
+      bookmarkletStep3: '点击右下角Broxy图标开始使用',
       edgeTab: 'Edge 扩展',
       edgeBadge: '审核中',
       edgeLink: '安装 Edge 扩展',
@@ -76,10 +83,6 @@ const i18n = {
       step2Note: '点击即可安装',
       step3: '点击浮动按钮配置',
       step3Note: '右下角 Broxy 图标'
-    },
-    try: {
-      button: '点击体验 Broxy',
-      hint: 'Broxy 已加载！点击右下角浮动按钮，即可将本页面公开为 API/MCP，在任意工作流、AI 客户端中调用'
     },
     footer: {
       desc: '将任意网页变成 MCP 服务器',
@@ -106,7 +109,7 @@ const i18n = {
       mcp: { title: 'AI Integration', desc: 'MCP support for Claude/OpenClaw to directly control browser' },
       automation: { title: 'Automation', desc: 'Simulate input, click, and request on any webpage' },
       security: { title: 'Secure & Private', desc: 'All operations run locally, no data sent to external servers' },
-      zero: { title: 'Zero Config', desc: 'One-click install via Tampermonkey, works out of the box' },
+      zero: { title: 'Zero Config', desc: 'Drag to bookmarks, click to use. No installation required' },
       cross: { title: 'Cross Platform', desc: 'Works on Chrome, Firefox, Safari, Edge and any browser with userscript support' }
     },
     quickstart: {
@@ -148,7 +151,14 @@ const i18n = {
     install: {
       title: 'Ready to get started?',
       desc: 'Install Broxy in seconds and start controlling your browser with AI',
-      hint: 'Choose one of the following methods (Edge Addons recommended)',
+      hint: 'Choose one of the following methods',
+      bookmarkletTab: 'Bookmarklet',
+      recommendedBadge: 'Recommended',
+      bookmarkletHint: 'Drag button to bookmarks, then click it on any webpage to load Broxy',
+      bookmarkletBtn: '🚀 Launch Broxy',
+      bookmarkletStep1: 'Drag [Launch Broxy] to bookmarks bar',
+      bookmarkletStep2: 'Open target webpage, click bookmark',
+      bookmarkletStep3: 'Click Broxy icon at bottom-right to start',
       edgeTab: 'Edge Addons',
       edgeBadge: 'Pending',
       edgeLink: 'Install from Edge Addons',
@@ -163,10 +173,6 @@ const i18n = {
       step2Note: 'Click to install',
       step3: 'Click floating button to config',
       step3Note: 'Broxy icon at bottom-right corner'
-    },
-    try: {
-      button: 'Try Broxy',
-      hint: 'Broxy loaded! Click the floating button at bottom-right to expose this page as API/MCP for any workflow or AI client'
     },
     footer: {
       desc: 'Turn any webpage into an MCP server',

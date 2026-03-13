@@ -148,7 +148,7 @@
           </svg>
         </div>
         <h3 data-i18n="features.zero.title">Zero Config</h3>
-        <p data-i18n="features.zero.desc">One-click install via Tampermonkey, works out of the box</p>
+        <p data-i18n="features.zero.desc">Drag to bookmarks, click to use. No installation required</p>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">
@@ -192,23 +192,23 @@
         </div>
       </div>
     </div>
-    <div class="quickstart-try" style="display: none;">
-      <button id="try-btn" class="try-btn" data-i18n="try.button">Try Broxy</button>
-      <p class="try-hint hidden" data-i18n="try.hint">Broxy loaded! Click the floating button at bottom-right to expose this page as API/MCP</p>
-    </div>
   </section>
 
   <section id="install" class="install-section">
     <div class="install-container reveal">
       <h2 class="install-title" data-i18n="install.title">Ready to get started?</h2>
       <p class="install-desc" data-i18n="install.desc">Install Broxy in seconds and start controlling your browser with AI</p>
-      <p class="install-hint-text" data-i18n="install.hint">Choose one of the following methods (Edge Addons recommended)</p>
+      <p class="install-hint-text" data-i18n="install.hint">Choose one of the following methods</p>
       <div class="install-tabs">
+        <button class="install-tab active" data-tab="bookmarklet">
+          <span data-i18n="install.bookmarkletTab">Bookmarklet</span>
+          <span class="badge badge-recommended" data-i18n="install.recommendedBadge">Recommended</span>
+        </button>
         <button class="install-tab disabled" data-tab="edge">
           <span data-i18n="install.edgeTab">Edge Addons</span>
           <span class="badge" data-i18n="install.edgeBadge">Pending</span>
         </button>
-        <button class="install-tab active" data-tab="user">
+        <button class="install-tab" data-tab="user">
           <span data-i18n="install.userTab">Userscript</span>
         </button>
         <button class="install-tab" data-tab="developer">
@@ -216,6 +216,32 @@
         </button>
       </div>
       <div class="install-content">
+        <div class="install-panel active" id="bookmarklet-panel">
+          <p class="bookmarklet-hint" data-i18n="install.bookmarkletHint">Drag button to bookmarks, then click it on any webpage to load Broxy</p>
+          <div class="bookmarklet-drag-area">
+            <a class="bookmarklet-btn" data-i18n="install.bookmarkletBtn">🚀 Launch Broxy</a>
+          </div>
+          <div class="install-steps bookmarklet-steps">
+            <div class="install-step">
+              <span class="install-number">1</span>
+              <div class="install-step-content">
+                <span class="install-link" data-i18n="install.bookmarkletStep1">Drag [Launch Broxy] to bookmarks bar</span>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="install-number">2</span>
+              <div class="install-step-content">
+                <span class="install-link" data-i18n="install.bookmarkletStep2">Open target webpage, click bookmark</span>
+              </div>
+            </div>
+            <div class="install-step">
+              <span class="install-number">3</span>
+              <div class="install-step-content">
+                <span class="install-link" data-i18n="install.bookmarkletStep3">Click Broxy icon at bottom-right to start</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="install-panel" id="edge-panel">
           <div class="install-steps">
             <div class="install-step">
@@ -227,7 +253,7 @@
             </div>
           </div>
         </div>
-        <div class="install-panel active" id="user-panel">
+        <div class="install-panel" id="user-panel">
           <div class="install-steps">
             <div class="install-step">
               <span class="install-number">1</span>

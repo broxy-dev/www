@@ -98,14 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   initInstallTabs();
+  initBookmarklet();
   initCopyButton();
-  initTryButton();
   initCursor();
   initParticles();
   initScrollReveal();
   initNavbarScroll();
   initCardHover();
 });
+
+function initBookmarklet() {
+  const btn = document.querySelector('.bookmarklet-btn');
+  if (!btn) return;
+  btn.href = "javascript:(s=document.createElement('script'),s.src='https://broxy.dev/assets/broxy-v1.user.js',document.body.appendChild(s))";
+}
 
 function initInstallTabs() {
   const tabs = document.querySelectorAll('.install-tab');
@@ -307,54 +313,6 @@ function initCardHover() {
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'translateY(0) perspective(800px) rotateX(0) rotateY(0)';
     });
-  });
-}
-
-function initTryButton() {
-  const trySection = document.querySelector('.quickstart-try');
-  const btn = document.getElementById('try-btn');
-  if (!trySection || !btn) return;
-  
-  setTimeout(() => {
-    if (window.broxy) return;
-    
-    const lastCard = document.querySelector('.quickstart-card:last-of-type');
-    
-    const showButton = () => {
-      trySection.style.display = 'block';
-    };
-    
-    if (lastCard && lastCard.classList.contains('visible')) {
-      setTimeout(showButton, 600);
-    } else if (lastCard) {
-      const observer = new MutationObserver(() => {
-        if (lastCard.classList.contains('visible')) {
-          observer.disconnect();
-          setTimeout(showButton, 600);
-        }
-      });
-      observer.observe(lastCard, { attributes: true, attributeFilter: ['class'] });
-    }
-  }, 100);
-  
-  btn.addEventListener('click', () => {
-    if (btn.disabled) return;
-    
-    btn.disabled = true;
-    const currentLang = getLang();
-    btn.textContent = currentLang === 'zh' ? '加载中...' : 'Loading...';
-    
-    const script = document.createElement('script');
-    script.src = 'assets/broxy-v1.user.js';
-    script.onload = () => {
-      btn.classList.add('hidden');
-      document.querySelector('.try-hint')?.classList.remove('hidden');
-    };
-    script.onerror = () => {
-      btn.disabled = false;
-      btn.textContent = currentLang === 'zh' ? '点击体验 Broxy' : 'Try Broxy';
-    };
-    document.body.appendChild(script);
   });
 }
 
