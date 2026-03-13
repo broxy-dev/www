@@ -308,16 +308,21 @@ a, button {
   padding: 32px;
   border: 1px solid var(--border);
   background: var(--bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .feature-card {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.02);
 }
 
 [data-theme="dark"] .feature-card:hover {
-  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.06);
 }
 
 .feature-icon {
