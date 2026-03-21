@@ -1,6 +1,15 @@
+/**
+ * Broxy 初始化数据脚本 / Broxy Init Data Script
+ * 
+ * 使用说明 / Instructions:
+ * 1. 将此脚本保存为 .js 文件 / Save this script as a .js file
+ * 2. 在脚本管理器中设置此脚本优先执行 / Set this script to run first in your script manager
+ * 3. 确保此脚本在 broxy-v1.user.js 之前执行 / Ensure this runs before broxy-v1.user.js
+ */
+
 window.__BROXY_INIT_DATA__ = {
   "version": "1.0",
-  "exportTime": "2026-02-28T19:45:23.751Z",
+  "exportTime": "2026-03-21T13:39:39.946Z",
   "source": "broxy.dev",
   "data": {
     "routes": [
@@ -107,10 +116,18 @@ window.__BROXY_INIT_DATA__ = {
     ],
     "mcpConfig": {
       "name": "BroxyDev Demo",
-      "version": "1.0.0"
+      "version": "1.3.21"
     },
     "initScript": "console.log('Hello world!')",
     "authToken": "",
-    "authEnabled": false
+    "authEnabled": false,
+    "skillConfig": {
+      "name": "test-broxy-dev",
+      "description": "Used to test the tools on the official Broxy.dev website. This skill can be applied when users need to understand Broxy and view execution examples of testing-related tools.",
+      "usageNotes": ""
+    },
+    "theme": "dark",
+    "language": ""
   }
-}
+};
+
